@@ -1,7 +1,7 @@
 # backbone-benchmark
 benchmark pytorch models
 ### bechmark
-GPU: Titan XP
+GPU: Titan XP  
 CPU: AMD Ryzen Threadripper 1950X 16-Core Processor
 
 | Model     | #Params(M) | GFLOPs | FPS |
