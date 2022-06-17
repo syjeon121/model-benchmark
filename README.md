@@ -1,4 +1,4 @@
-# backbone-benchmark
+# model-benchmark
 benchmark pytorch models
 ### bechmark
 GPU: Titan XP  
