@@ -1,24 +1,23 @@
 # model-benchmark
-benchmark pytorch models
-ref: https://towardsdatascience.com/getting-started-with-pytorch-image-models-timm-a-practitioners-guide-4e77b4bf9055
-https://github.com/nebuly-ai/nebullvm/blob/main/resources/notebooks/Accelerate-PyTorch-YOLO-with-nebullvm.ipynb
-https://github.com/sovrasov/flops-counter.pytorch
+this repo is a simple code for evaluating pytorch model (params, flops, fps)
+this repo used [ptflops](https://github.com/sovrasov/flops-counter.pytorch)
 
-### bechmark 1
+### bechmark
 
 CPU: Intel(R) Core(TM) i5-1038NG7 CPU @ 2.00GHz CPU and no GPU.
 
-| Model     | #Params(M) | GFLOPs | FPS |
-| :-------- | :--------: | :----: | :---------:|
-|   | | | |
+| Model     | resolution | #Params(M) | GFLOPs | FPS |
+| :-------- | :--------: | :--------: | :----: | :---------:|
+| convnext_base | 224 | 88.5 | 15.4 | 4.2 |
+| cspdarknet53 | 256 | 27.6 | 6.5 | 7.8 |
 
-### bechmark 2
+### example
 
-
-GPU: Titan XP  
-CPU: AMD Ryzen Threadripper 1950X 16-Core Processor
-
-| Model     | #Params(M) | GFLOPs | FPS |
-| :-------- | :--------: | :----: | :---------:|
-| [VAN-base](https://github.com/Visual-Attention-Network/VAN-Classification)  |    26.6    |  5.0  |    76.5     |
-| [centernext - convnext-t](https://github.com/MarkAny-Vision-AI/CenterNeXt)  |    31.7    |  5.1  |    151.7    |
+python3 eval.py
+```
+Model: cspdarknet53
+Input size: (3, 256, 256)
+Computational complexity:       6.55 GMac
+Number of parameters:           27.64 M 
+Average prediction time: 128.6 ms (7.775 fps)
+```
