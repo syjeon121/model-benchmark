@@ -2,7 +2,7 @@
 this repo is a simple code for evaluating pytorch model (params, flops, fps)
 this repo used [ptflops](https://github.com/sovrasov/flops-counter.pytorch)
 
-### bechmark
+## bechmark
 
 CPU: Intel(R) Core(TM) i5-1038NG7 CPU @ 2.00GHz CPU and no GPU.
 
@@ -11,7 +11,7 @@ CPU: Intel(R) Core(TM) i5-1038NG7 CPU @ 2.00GHz CPU and no GPU.
 | convnext_base | 224 | 88.5 | 15.4 | 4.2 |
 | cspdarknet53 | 256 | 27.6 | 6.5 | 7.8 |
 
-### example
+## example
 
 python3 eval.py
 ```
