@@ -22,6 +22,10 @@ def benchmark(args):
         # print(f"Model: %s" % model_name)
         # print(f"Input size: %s" % (input_size,))
 
+        ## save model
+        if args.save == True:
+            torch.save(model.state_dict(), model_name + '.pt')
+
         ## calculate params, flops
         ## https://github.com/sovrasov/flops-counter.pytorch
         macs, params = get_model_complexity_info(model, input_size, as_strings=True,
@@ -54,5 +58,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--device', type=str, default='cpu')
     parser.add_argument('--iter', type=int, default=300)
+    parser.add_argument('--save', default=False, action="store_true")
 
     benchmark(parser.parse_args())
