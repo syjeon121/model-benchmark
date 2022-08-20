@@ -50,8 +50,7 @@ def benchmark(args):
         # print('{:<30}  {:<8}'.format('Number of parameters: ', params))
 
         ## calculate fps
-        dummy_input = torch.randn(input_size, device=args.device)
-        dummy_input = torch.unsqueeze(dummy_input, dim=0)
+
         times = []
         for _ in range(args.iter):
             starting_time = time.time()
