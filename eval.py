@@ -12,9 +12,8 @@ def benchmark(args):
     model_table = {}
     for model_name in model_list:
 
-        model_table[model_name] = []
-
         ## create model
+        model_table[model_name] = []
         model = timm.create_model(model_name)
         model.to(args.device)
         input_size = model.default_cfg['input_size']
@@ -50,7 +49,6 @@ def benchmark(args):
         # print('{:<30}  {:<8}'.format('Number of parameters: ', params))
 
         ## calculate fps
-
         times = []
         for _ in range(args.iter):
             starting_time = time.time()
