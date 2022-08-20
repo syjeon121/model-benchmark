@@ -22,9 +22,23 @@ def benchmark(args):
         # print(f"Model: %s" % model_name)
         # print(f"Input size: %s" % (input_size,))
 
-        ## save model
+        ## save model (onnx)
+        dummy_input = torch.randn(input_size, device=args.device)
+        dummy_input = torch.unsqueeze(dummy_input, dim=0)
         if args.save == True:
-            torch.save(model.state_dict(), model_name + '.pt')
+            # torch.save(model.state_dict(), model_name + '.pt')
+
+            ## export the model 
+            ## https://pytorch.org/tutorials/advanced/super_resolution_with_onnxruntime.html
+            torch.onnx.export(model,         # model being run
+                  dummy_input,               # model input (or a tuple for multiple inputs)
+                  model_name + ".onnx",      # where to save the model (can be a file or file-like object)
+                  export_params=False,       # store the trained parameter weights inside the model file
+                  opset_version=10,          # the ONNX version to export the model to
+                  do_constant_folding=True,  # whether to execute constant folding for optimization
+                  input_names = ['input'],   # the model's input names
+                  output_names = ['output']) # the model's output names
+
 
         ## calculate params, flops
         ## https://github.com/sovrasov/flops-counter.pytorch
