@@ -74,7 +74,7 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--device', type=str, default='cpu')
-    parser.add_argument('--iter', type=int, default=300)
+    parser.add_argument('--iter', type=int, default=100)
     parser.add_argument('--save', default=False, action="store_true")
 
     benchmark(parser.parse_args())
